@@ -16,6 +16,14 @@ public class Serie {
     String tituloSerie;
     private List<Temporada> temporadas;
 
+    public List<Temporada> getTemporadas() {
+        return temporadas;
+    }
+
+    public void setTemporadas(List<Temporada> temporadas) {
+        this.temporadas = temporadas;
+    }
+
     public Serie() {
         temporadas = new ArrayList();
     }
@@ -53,6 +61,10 @@ public class Serie {
         float notaSerie = (float) somaAvaliacoes / quantidade;
         
         String serie = this.tituloSerie + " - " + (this.temporadas.size()+1) + " temporadas" + " - " + "Nota: " + notaSerie + "\n";
+
+        for(Temporada temporada : temporadas){
+            serie += temporada.toString()+"\n";
+        }
         return serie;
     }
     

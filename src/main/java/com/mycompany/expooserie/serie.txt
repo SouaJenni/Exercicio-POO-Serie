@@ -1,0 +1,13 @@
+Um estudo em pink;muito bom;5;95
+O cao;excelente;5;90
+Joaozinho e o pe de feijao;legal;4;2
+---
+Primeira temporada
+---
+Muffin vermelho;previsivel;3;40
+A bandeira carmesin;basico;2;15
+---
+Segunda temporada
+---
+---
+Sherlock;5

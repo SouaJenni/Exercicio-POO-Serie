@@ -23,7 +23,8 @@ public class ExPooSerie {
             System.out.println("3- Deletar uma série.");
             System.out.println("4- Atualizar uma série.");
             System.out.println("5- Cadastrar Serie.");
-            System.out.println("6- Sair");
+            System.out.println("6- Ler arquivo.");
+            System.out.println("7- Sair");
 
             opcao = leitura.lerInteiro("");
 
@@ -49,13 +50,19 @@ public class ExPooSerie {
                     break;
                     
                 case 6:
+                    Importador importador = new Importador();
+                    Serie serie = importador.leitorArquivo("/home/jenni/Documentos/Exercicio-POO-Serie/src/main/java/com/mycompany/expooserie/serie.txt");
+                    series.add(serie);
+                    break;
+
+                case 7:
                     System.out.println("Saindo...");
                     break;
                     
                 default:
                     System.out.println("Opcao Invalida");
             }
-        }while(opcao != 6);
+        }while(opcao != 7);
     }
     
     
