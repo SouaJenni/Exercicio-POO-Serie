@@ -52,7 +52,7 @@ public class Serie {
         }
         float notaSerie = (float) somaAvaliacoes / quantidade;
         
-        String serie = this.tituloSerie + " - " + this.temporadas.size() + " temporadas" + " - " + "Nota: " + notaSerie + "\n";
+        String serie = this.tituloSerie + " - " + (this.temporadas.size()+1) + " temporadas" + " - " + "Nota: " + notaSerie + "\n";
         return serie;
     }
     
