@@ -11,7 +11,6 @@ import java.util.List;
 public class ExPooSerie {
     private static Leitura leitura = new Leitura();
     private static  List<Serie> series = new ArrayList();
-    private static List<Temporada> temporadas = new ArrayList<>();
     
     public static void main(String[] args) {    
         int opcao = 1;
@@ -74,9 +73,6 @@ public class ExPooSerie {
             for (Serie s : series) {
                 System.out.println(s.toString());
             }
-            for (Temporada t : temporadas){
-                System.out.println(t.toString());
-            }
         }
     }
     
@@ -123,28 +119,85 @@ public class ExPooSerie {
     }
     
     public static void atualizarSerie(){
-        String serieParaAtualizar = leitura.lerString("Qual série gostaria de ver?");
-        boolean encontrada = false;
-        
-        for (Serie s : series) {
-            if (!s.getTituloSerie().equalsIgnoreCase(serieParaAtualizar)) {
-                encontrada = false;
-                System.out.println("Serie não encontrada!");
-            }else{
-                boolean atualizarMais = false;
-                do{
-                    String atualizar = leitura.lerString("Gostaria de atualizar o título da série? (S/N)");
-                    if(atualizar.equalsIgnoreCase("S")){
-                        String novoTituloSerie = leitura.lerString("Qual o novo título da série?");
-                        s.setTituloSerie(novoTituloSerie);
-                    }                    
-                }while(atualizarMais);
-                
-                //temporada.getnumero
-                //episodio.getnumero
+            String serieParaAtualizar = leitura.lerString("Qual série gostaria de atualizar?");
+            Serie serieEncontrada = null;
+
+            for (Serie s : series) {
+                if (s.getTituloSerie().equalsIgnoreCase(serieParaAtualizar)) {
+                    serieEncontrada = s;
+                    break;
+                }
             }
-               
-        }    
+
+            if (serieEncontrada == null) {
+                System.out.println("Série não encontrada!");
+                return;
+            }
+
+            System.out.println("Série encontrada: " + serieEncontrada.getTituloSerie());
+
+            int novaNota;
+            do {
+                novaNota = leitura.lerInteiro("Qual a nova nota da série? (0 a 5)");
+                if (novaNota < 0 || novaNota > 5) {
+                    System.out.println("Nota inválida. Tente novamente.");
+                }
+            } while (novaNota < 0 || novaNota > 5);
+            serieEncontrada.setNota(novaNota);
+
+            boolean querAdicionarMaisTemporadas;
+            int numeroTemporada = serieEncontrada.getTemporadas().size() + 1;
+
+            do {
+                Temporada novaTemporada = new Temporada();
+                novaTemporada.setNumeroTp(numeroTemporada);
+
+                List<Episodio> episodios = new ArrayList<>();
+                boolean querAdicionarMaisEpisodios;
+                int numeroEpisodio = 1;
+
+                do {
+                    Episodio episodio = new Episodio();
+
+                    String tituloEp = leitura.lerString("Qual o título do episódio?");
+                    episodio.setTitulo(tituloEp);
+
+                    int notaEp;
+                    do {
+                        notaEp = leitura.lerInteiro("Qual a nota do episódio? (0 a 5)");
+                        if (notaEp < 0 || notaEp > 5) {
+                            System.out.println("Nota inválida. Tente novamente.");
+                        }
+                    } while (notaEp < 0 || notaEp > 5);
+                    episodio.setAvaliacao(notaEp);
+
+                    String comentarioEp = leitura.lerString("Deixe um comentário sobre o episódio:");
+                    episodio.setComentario(comentarioEp);
+
+                    int duracao = leitura.lerInteiro("Qual a duração do episódio em minutos?");
+                    episodio.setDuracao(duracao);
+
+                    episodio.setNumeroEp(numeroEpisodio);
+                    episodios.add(episodio);
+                    numeroEpisodio++;
+
+                    String maisEpisodios = leitura.lerString("Gostaria de cadastrar mais episódios? (S/N)");
+                    querAdicionarMaisEpisodios = maisEpisodios.equalsIgnoreCase("S");
+                } while (querAdicionarMaisEpisodios);
+
+                novaTemporada.setEpisodios(episodios);
+
+                String descricaoTp = leitura.lerString("Descreva a temporada:");
+                novaTemporada.setDescricao(descricaoTp);
+
+                serieEncontrada.getTemporadas().add(novaTemporada);
+                numeroTemporada++;
+
+                String maisTemporadas = leitura.lerString("Gostaria de adicionar mais temporadas? (S/N)");
+                querAdicionarMaisTemporadas = maisTemporadas.equalsIgnoreCase("S");
+            } while (querAdicionarMaisTemporadas);
+
+            System.out.println("Série atualizada com sucesso!");
     }
     
     public static void cadastrarSerie(){
@@ -152,20 +205,19 @@ public class ExPooSerie {
         do {
             Serie novaSerie = new Serie();
 
-
             String tituloSerie = leitura.lerString("Qual o título da série?");
             novaSerie.setTituloSerie(tituloSerie);
 
-            int notaSerie = leitura.lerInteiro("Qual nota esta série merece? (0 a 5)");
+            int notaSerie;
             do {
-                notaSerie = leitura.lerInteiro("Qual a nota do episódio? (0 a 5)");
+                notaSerie = leitura.lerInteiro("Qual nota esta série merece? (0 a 5)");
                     if (notaSerie < 0 || notaSerie > 5) {
                         System.out.println("Nota inválida. Tente novamente.");
                     }
                 } while (notaSerie < 0 || notaSerie > 5);
             novaSerie.setNota(notaSerie);
 
-            querCadastrarMais = false;
+            List<Temporada> temporadaSerie = new ArrayList<>();
             int numeroTemporada = 1;
 
             do {
@@ -208,19 +260,18 @@ public class ExPooSerie {
                 String descricaoTp = leitura.lerString("Descreva a temporada:");
                 temporada.setDescricao(descricaoTp);
 
-                temporadas.add(temporada);
+                temporadaSerie.add(temporada);
                 numeroTemporada++;
 
                 String maisTemporadas = leitura.lerString("Gostaria de cadastrar mais temporadas? (S/N)");
                 querCadastrarMais = maisTemporadas.equalsIgnoreCase("S");
             } while (querCadastrarMais);
 
+            novaSerie.setTemporadas(temporadaSerie);
             series.add(novaSerie);
 
             String maisSeries = leitura.lerString("Gostaria de cadastrar mais séries? (S/N)");
             querCadastrarMais = maisSeries.equalsIgnoreCase("S");
         } while (querCadastrarMais);
-
-        System.out.println("Série(s) cadastrada(s) com sucesso!");
     }
 }

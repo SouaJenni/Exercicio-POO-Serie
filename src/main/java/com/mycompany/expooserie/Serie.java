@@ -60,7 +60,7 @@ public class Serie {
         }
         float notaSerie = (float) somaAvaliacoes / quantidade;
         
-        String serie = this.tituloSerie + " - " + (this.temporadas.size()+1) + " temporadas" + " - " + "Nota: " + notaSerie + "\n";
+        String serie = this.tituloSerie + " - " + temporadas.size() + " temporadas" + " - " + "Nota: " + notaSerie + "\n";
 
         for(Temporada temporada : temporadas){
             serie += temporada.toString()+"\n";
