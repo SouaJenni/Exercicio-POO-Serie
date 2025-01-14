@@ -14,6 +14,7 @@ public class Importador {
     }
 
     public Serie leitorArquivo(String caminho){
+        List<Serie> series = new ArrayList<>();
         try {
             BufferedReader buff = new BufferedReader(new FileReader(caminho));
             String linha = buff.readLine();
@@ -61,6 +62,7 @@ public class Importador {
             serie.setTituloSerie(s[0]);
             serie.setNota(Integer.parseInt(s[1]));
             serie.setTemporadas(temporadas);
+            series.add(serie);
             return serie;
         } catch (FileNotFoundException e) {
             System.out.println("Não foi possível ler o arquivo");
