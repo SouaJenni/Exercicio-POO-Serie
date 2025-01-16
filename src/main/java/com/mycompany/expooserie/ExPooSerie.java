@@ -10,7 +10,9 @@ import java.util.List;
 
 public class ExPooSerie {
     private static Leitura leitura = new Leitura();
-    private static  List<Serie> series = new ArrayList();
+    private static Importador importador = new Importador();
+    private static  String caminhoArquivo = "/home/jenni/Documentos/Exercicio-POO-Serie/src/main/java/com/mycompany/expooserie/serie.txt";
+    private static  List<Serie> series = importador.leitorArquivo(caminhoArquivo);
     
     public static void main(String[] args) {    
         int opcao = 1;
@@ -22,8 +24,7 @@ public class ExPooSerie {
             System.out.println("3- Deletar uma série.");
             System.out.println("4- Atualizar uma série.");
             System.out.println("5- Cadastrar Serie.");
-            System.out.println("6- Ler arquivo.");
-            System.out.println("7- Sair");
+            System.out.println("6- Salvar e sair");
 
             opcao = leitura.lerInteiro("");
 
@@ -49,19 +50,16 @@ public class ExPooSerie {
                     break;
                     
                 case 6:
-                    Importador importador = new Importador();
-                    List<Serie> seriesLidas = importador.leitorArquivo("/home/jenni/Documentos/Exercicio-POO-Serie/src/main/java/com/mycompany/expooserie/serie.txt");
-                    series.addAll(seriesLidas);
-                    break;
-
-                case 7:
+                    System.out.println("Salvando...");
+                    Exportador exportador = new Exportador();
+                    exportador.salvarArquivo(caminhoArquivo, series);
                     System.out.println("Saindo...");
                     break;
                     
                 default:
                     System.out.println("Opcao Invalida");
             }
-        }while(opcao != 7);
+        }while(opcao != 6);
     }
     
     

@@ -12,8 +12,8 @@ import java.util.List;
  * @author Jenni
  */
 public class Serie {
-    int nota;
-    String tituloSerie;
+    private int nota;
+    private String tituloSerie;
     private List<Temporada> temporadas;
 
     public List<Temporada> getTemporadas() {

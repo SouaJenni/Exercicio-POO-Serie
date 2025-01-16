@@ -8,16 +8,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Importador {
-    private Serie serie;
 
     public Importador() {
     }
 
     public List<Serie> leitorArquivo(String caminho){
         List<Serie> seriesLidas = new ArrayList<>();
-
-            try {
-                BufferedReader buff = new BufferedReader(new FileReader(caminho));
+        BufferedReader buff = null;
+        try {
+            buff = new BufferedReader(new FileReader(caminho));
                 String linha = buff.readLine();
             while (linha != null) {
                     int numeroTp = 1;
@@ -73,10 +72,19 @@ public class Importador {
             }
 
         } catch (FileNotFoundException e) {
-            System.out.println("Não foi possível ler o arquivo");
+            System.err.println("Não foi possível ler o arquivo");
         } catch (IOException e) {
-            System.out.println("Erro ao ler a linha");
+            System.err.println("Erro ao ler a linha");
         }
+            finally {
+                if(buff != null){
+                    try {
+                        buff.close();
+                    } catch (IOException e) {
+                        System.err.println("Não pôde fechar o arquivo");
+                    }
+                }
+            }
         return seriesLidas;
     }
 }
