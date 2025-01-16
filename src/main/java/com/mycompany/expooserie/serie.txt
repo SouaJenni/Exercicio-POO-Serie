@@ -11,11 +11,10 @@ Segunda temporada
 ---
 ---
 Sherlock;5
----
 Testando leitor;espero que funcione;5;25
 Testando outro ep;na torcida;5;32
 ---
 Temporada teste 1
 ---
 ---
-Serie teste
+Serie teste;4

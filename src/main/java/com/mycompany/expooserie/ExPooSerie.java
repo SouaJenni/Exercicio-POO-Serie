@@ -50,8 +50,8 @@ public class ExPooSerie {
                     
                 case 6:
                     Importador importador = new Importador();
-                    Serie serie = importador.leitorArquivo("/home/jenni/Documentos/Exercicio-POO-Serie/src/main/java/com/mycompany/expooserie/serie.txt");
-                    series.add(serie);
+                    List<Serie> seriesLidas = importador.leitorArquivo("/home/jenni/Documentos/Exercicio-POO-Serie/src/main/java/com/mycompany/expooserie/serie.txt");
+                    series.addAll(seriesLidas);
                     break;
 
                 case 7:
