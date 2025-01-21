@@ -7,12 +7,13 @@ package com.mycompany.expooserie;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.mycompany.expooserie.Consts.CAMINHO_ARQUIVO;
+
 
 public class ExPooSerie {
     private static Leitura leitura = new Leitura();
     private static Importador importador = new Importador();
-    private static  String caminhoArquivo = "/home/jenni/Documentos/Exercicio-POO-Serie/src/main/java/com/mycompany/expooserie/serie.txt";
-    private static  List<Serie> series = importador.leitorArquivo(caminhoArquivo);
+    private static  List<Serie> series = importador.leitorArquivo(CAMINHO_ARQUIVO);
     
     public static void main(String[] args) {    
         int opcao = 1;
@@ -52,7 +53,7 @@ public class ExPooSerie {
                 case 6:
                     System.out.println("Salvando...");
                     Exportador exportador = new Exportador();
-                    exportador.salvarArquivo(caminhoArquivo, series);
+                    exportador.salvarArquivo(CAMINHO_ARQUIVO, series);
                     System.out.println("Saindo...");
                     break;
                     

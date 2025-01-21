@@ -3,6 +3,9 @@ package com.mycompany.expooserie;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
+
+import static com.mycompany.expooserie.Consts.CAMINHO_ARQUIVO;
 
 public class Menu extends JFrame {
     private JButton btListar;
@@ -12,6 +15,8 @@ public class Menu extends JFrame {
     private JButton btBuscar;
     private JButton btSair;
     private JPanel painelMenu;
+    private List<Serie> series;
+    private Menu menu;
 
     public Menu() {
         setContentPane(painelMenu);
@@ -19,12 +24,14 @@ public class Menu extends JFrame {
         setSize(400, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-
+        series = new Importador().leitorArquivo(CAMINHO_ARQUIVO);
+        menu = this;
 
         btCadastrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
+                new CadastrarSerie(menu);
+                setVisible(false);
             }
         });
 

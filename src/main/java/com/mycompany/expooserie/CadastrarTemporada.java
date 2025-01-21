@@ -4,28 +4,35 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 public class CadastrarTemporada extends JFrame {
+    private JPanel painelTemproada;
     private JTextField txtDescricao;
-    private JTextField txtTituloEp;
-    private JTextField txtNotaEp;
-    private JTextField txtDuracao;
     private JButton btCadastrar;
     private JButton btCancelar;
-    private JTextField txtComentario;
-    private JPanel painelTemporada;
+    private Utils utils = new Utils();
+    private Temporada temporada = new Temporada();
+    private CadastrarTemporada cadastrarTemporada;
 
-    public CadastrarTemporada() {
-        setContentPane(painelTemporada);
+    public CadastrarTemporada(CadastrarSerie cadastrarSerie) {
+        setContentPane(painelTemproada);
         setTitle("Cadastrar Temporada");
-        setSize(600, 500);
+        setSize(400, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
+        cadastrarTemporada = this;
 
 
         btCadastrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                //temporada.setDescricao() = txtDescricao.getText();
+                String descricao = txtDescricao.getText();
+                if(descricao.isEmpty()){
+                    utils.mostrarAlerta("A descrição está vazia");
+                    return;
+                }
+                new CadastrarEpisodio(cadastrarTemporada);
+                setVisible(false);
             }
         });
 
@@ -33,17 +40,9 @@ public class CadastrarTemporada extends JFrame {
         btCancelar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                txtDescricao.setText("");
-                txtTituloEp.setText("");
-                txtNotaEp.setText("");
-                txtDuracao.setText("");
-                txtComentario.setText("");
-                //voltar
+                cadastrarSerie.setVisible(true);
+                dispose();
             }
         });
-    }
-
-    public static void main(String[] args) {
-        CadastrarTemporada ct = new CadastrarTemporada();
     }
 }
