@@ -39,7 +39,8 @@ public class Menu extends JFrame {
         btListar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
+                new ImprimeSerie(menu);
+                setVisible(false);
             }
         });
 
@@ -63,7 +64,8 @@ public class Menu extends JFrame {
         btBuscar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
+                new BuscarSerie(menu);
+                setVisible(false);
             }
         });
 

@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CadastrarEpisodio extends JFrame {
-    private JTextField txtDescricao;
     private JTextField txtTituloEp;
     private JTextField txtNotaEp;
     private JTextField txtDuracao;
