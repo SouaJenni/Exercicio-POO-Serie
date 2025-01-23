@@ -84,7 +84,7 @@
           <background color="-9822859"/>
           <font name="Noto Sans Mono" size="14"/>
           <foreground color="-394241"/>
-          <text value="Sair"/>
+          <text value="Salvar e sair"/>
         </properties>
       </component>
       <vspacer id="f5770">

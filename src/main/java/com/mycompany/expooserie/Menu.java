@@ -18,6 +18,14 @@ public class Menu extends JFrame {
     private List<Serie> series;
     private Menu menu;
 
+    public List<Serie> getSeries() {
+        return series;
+    }
+
+    public void setSeries(List<Serie> series) {
+        this.series = series;
+    }
+
     public Menu() {
         setContentPane(painelMenu);
         setTitle("Menu");
@@ -30,7 +38,7 @@ public class Menu extends JFrame {
         btCadastrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                new CadastrarSerie(menu);
+                new CadastrarSerie(menu, null);
                 setVisible(false);
             }
         });
@@ -48,7 +56,7 @@ public class Menu extends JFrame {
         btAtualizar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
+                new BuscarSerie(menu, "Atualizar");
             }
         });
 
@@ -64,7 +72,7 @@ public class Menu extends JFrame {
         btBuscar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                new BuscarSerie(menu);
+                new BuscarSerie(menu, "buscar");
                 setVisible(false);
             }
         });
@@ -73,7 +81,8 @@ public class Menu extends JFrame {
         btSair.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
+                new Exportador().salvarArquivo(CAMINHO_ARQUIVO, series);
+                dispose();
             }
         });
     }

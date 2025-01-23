@@ -12,4 +12,9 @@ public class Utils {
         JOptionPane.showMessageDialog(null, mensagem, "Confira a informção", JOptionPane.WARNING_MESSAGE);
 
     }
+
+    public int mostarConfirmacao(String mensagem){
+        int opcao = JOptionPane.showConfirmDialog(null, mensagem, "Escolha uma opção", JOptionPane.YES_NO_OPTION);
+        return opcao;
+    }
 }

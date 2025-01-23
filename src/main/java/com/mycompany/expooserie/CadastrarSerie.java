@@ -3,6 +3,8 @@ package com.mycompany.expooserie;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CadastrarSerie extends JFrame {
     private JTextField txtTituloSerie;
@@ -10,11 +12,22 @@ public class CadastrarSerie extends JFrame {
     private JButton btCancelar;
     private JButton btCadastrar;
     private JPanel painelSerie;
+    private JButton btSalvar;
     private Utils utils= new Utils();
     private Serie serie;
     private CadastrarSerie cadastrarSerie;
 
-    public CadastrarSerie(Menu parent) {
+    public List<Temporada> getTemporadas() {
+        return temporadas;
+    }
+
+    public void setTemporadas(List<Temporada> temporadas) {
+        this.temporadas = temporadas;
+    }
+
+    private List<Temporada> temporadas;
+
+    public CadastrarSerie(Menu parent, Serie serieAtualizar) {
         setContentPane(painelSerie);
         setTitle("Cadastrar Serie");
         setSize(400, 400);
@@ -22,8 +35,32 @@ public class CadastrarSerie extends JFrame {
         setVisible(true);
         serie = new Serie();
         cadastrarSerie = this;
+        temporadas = new ArrayList<>();
+        if(serieAtualizar != null){
+            serie = serieAtualizar;
+            txtTituloSerie.setText(serie.getTituloSerie());
+            txtNotaSerie.setText(serie.getNota()+"");
+        }
 
         btCadastrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+
+                new CadastrarTemporada(cadastrarSerie);
+                setVisible(false);
+            }
+        });
+
+
+        btCancelar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+               parent.setVisible(true);
+               dispose();
+            }
+        });
+
+        btSalvar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 String titulo = txtTituloSerie.getText();
@@ -41,28 +78,22 @@ public class CadastrarSerie extends JFrame {
                     serie.setNota(nota);
                 } catch (NumberFormatException e) {
                     utils.mostrarErro("A nota digitada não é um número");
+                    return;
                 }
-                new CadastrarTemporada(cadastrarSerie);
-                setVisible(false);
+                serie.setTemporadas(temporadas);
+                parent.getSeries().add(serie);
+                int opcao = utils.mostarConfirmacao("Deseja cadastar mais uma série?");
+                if(opcao == JOptionPane.YES_OPTION){
+                    txtTituloSerie.setText("");
+                    txtNotaSerie.setText("");
+                    temporadas = new ArrayList<>();
+                    serie = new Serie();
+                    return;
+                }
+                parent.setVisible(true);
+                dispose();
             }
         });
-
-
-        btCancelar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-               parent.setVisible(true);
-               dispose();
-            }
-        });
-    }
-
-    public Serie getSerie() {
-        return serie;
-    }
-
-    public void setSerie(Serie serie) {
-        this.serie = serie;
     }
 
     //    public static void main(String[] args) {
