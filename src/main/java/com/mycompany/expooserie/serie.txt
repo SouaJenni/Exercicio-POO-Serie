@@ -17,3 +17,15 @@ Triste
 ---
 ---
 quinta serie;5
+excluir;excluir;1;1
+---
+excluir
+---
+---
+excluir;1
+apagar;apagar;2;2
+---
+apagar
+---
+---
+apagar;2

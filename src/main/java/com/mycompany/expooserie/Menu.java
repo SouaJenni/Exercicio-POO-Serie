@@ -64,7 +64,8 @@ public class Menu extends JFrame {
         btDeletar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
+                new BuscarSerie(menu, "Deletar");
+                setVisible(false);
             }
         });
 

@@ -36,6 +36,18 @@ public class BuscarSerie extends JFrame {
                 switch (modo) {
                     case "Atualizar":
                         new CadastrarSerie(parent, serie);
+                        break;
+
+                    case "Deletar":
+                        int opcao = utils.mostarConfirmacao("Série encontrada. Tem certeza que deseja excluir esta série?");
+                        if(opcao == JOptionPane.YES_OPTION) {
+                            parent.getSeries().remove(serie);
+                            utils.mostrarAlerta("Série excluida com sucesso!");
+                        }
+
+                        txtBuscarSerie.setText("");
+                        parent.setVisible(true);
+                        dispose();
                 }
             }
         });
