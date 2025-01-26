@@ -33,6 +33,7 @@ public class CadastrarSerie extends JFrame {
         setSize(400, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
+        parent.setVisible(false);
         serie = new Serie();
         cadastrarSerie = this;
         temporadas = new ArrayList<>();
@@ -81,17 +82,29 @@ public class CadastrarSerie extends JFrame {
                     return;
                 }
                 serie.setTemporadas(temporadas);
-                parent.getSeries().add(serie);
-                int opcao = utils.mostarConfirmacao("Deseja cadastar mais uma série?");
-                if(opcao == JOptionPane.YES_OPTION){
-                    txtTituloSerie.setText("");
-                    txtNotaSerie.setText("");
-                    temporadas = new ArrayList<>();
-                    serie = new Serie();
-                    return;
+                if(serieAtualizar != null){
+                    for(Serie serie1 : parent.getSeries()){
+                        if(serieAtualizar.getTituloSerie().equals(serie.getTituloSerie())){
+                            serie.setTituloSerie(serie.getTituloSerie());
+                            serie.setNota(serie.getNota());
+                        }
+                    }
+                    utils.mostrarAlerta("Série atualizada com sucesso!");
+                    parent.setVisible(true);
+                    dispose();
+                }else {
+                    parent.getSeries().add(serie);
+                    int opcao = utils.mostarConfirmacao("Deseja cadastar mais uma série?");
+                    if(opcao == JOptionPane.YES_OPTION){
+                        txtTituloSerie.setText("");
+                        txtNotaSerie.setText("");
+                        temporadas = new ArrayList<>();
+                        serie = new Serie();
+                        return;
+                    }
+                    parent.setVisible(true);
+                    dispose();
                 }
-                parent.setVisible(true);
-                dispose();
             }
         });
     }

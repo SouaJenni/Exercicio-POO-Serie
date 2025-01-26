@@ -23,9 +23,15 @@ excluir
 ---
 ---
 excluir;1
-apagar;apagar;2;2
+pipipipopopo;hihihi;2;30
 ---
-apagar
+blablabla
 ---
 ---
-apagar;2
+apagar;3
+mudei aqui;está diferente;4;67
+---
+atualizado
+---
+---
+atualizar;2

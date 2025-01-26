@@ -36,6 +36,7 @@ public class BuscarSerie extends JFrame {
                 switch (modo) {
                     case "Atualizar":
                         new CadastrarSerie(parent, serie);
+                        setVisible(false);
                         break;
 
                     case "Deletar":
