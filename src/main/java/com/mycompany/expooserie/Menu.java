@@ -47,7 +47,7 @@ public class Menu extends JFrame {
         btListar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                new ImprimeSerie(menu);
+                new ImprimeSerie(menu, null);
                 setVisible(false);
             }
         });

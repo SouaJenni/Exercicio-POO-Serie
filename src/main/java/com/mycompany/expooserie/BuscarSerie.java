@@ -52,11 +52,10 @@ public class BuscarSerie extends JFrame {
                         dispose();
                         break;
 
-                    case "buscar":
-//                        imprimir = new ImprimeSerie (parent);
-//                        imprimir.getAreaDeTexto().setText(serie.toString());
-//                        imprimir.setVisible(true);
-//                        break;
+                    case "Buscar":
+                        imprimir = new ImprimeSerie (parent, serie);
+                        setVisible(false);
+                        break;
                 }
             }
         });

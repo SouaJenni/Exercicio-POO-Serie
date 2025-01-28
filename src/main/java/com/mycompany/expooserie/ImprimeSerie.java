@@ -19,18 +19,21 @@ public class ImprimeSerie extends JFrame {
         this.areaDeTexto = areaDeTexto;
     }
 
-    public ImprimeSerie (Menu parent) {
+    public ImprimeSerie (Menu parent, Serie serieBuscada) {
         setContentPane(painelImprime);
         setTitle("Séries cadastradas");
         setSize(600, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-        String texto = "";
-        for(Serie serie : parent.getSeries()){
-            texto += serie.toString() + "\n";
+        if(serieBuscada != null) {
+            areaDeTexto.setText(serieBuscada.toString());
+        }else {
+            String texto = "";
+            for (Serie serie : parent.getSeries()) {
+                texto += serie.toString() + "\n";
+            }
+            areaDeTexto.setText(texto);
         }
-        areaDeTexto.setText(texto);
-
 
         btVoltar.addActionListener(new ActionListener() {
             @Override
