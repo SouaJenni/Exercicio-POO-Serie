@@ -57,6 +57,7 @@ public class Menu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 new BuscarSerie(menu, "Atualizar");
+                setVisible(false);
             }
         });
 
@@ -73,7 +74,7 @@ public class Menu extends JFrame {
         btBuscar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                new BuscarSerie(menu, "buscar");
+                new BuscarSerie(menu, "Buscar");
                 setVisible(false);
             }
         });

@@ -33,7 +33,6 @@ public class CadastrarSerie extends JFrame {
         setSize(400, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-        parent.setVisible(false);
         serie = new Serie();
         cadastrarSerie = this;
         temporadas = new ArrayList<>();

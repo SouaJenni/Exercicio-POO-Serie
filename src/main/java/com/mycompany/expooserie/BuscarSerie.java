@@ -11,6 +11,7 @@ public class BuscarSerie extends JFrame {
     private JPanel painelBuscar;
     private Serie serie;
     private Utils utils;
+    private ImprimeSerie imprimir;
 
     public BuscarSerie(Menu parent, String modo) {
         setContentPane(painelBuscar);
@@ -40,7 +41,7 @@ public class BuscarSerie extends JFrame {
                         break;
 
                     case "Deletar":
-                        int opcao = utils.mostarConfirmacao("Série encontrada. Tem certeza que deseja excluir esta série?");
+                        int opcao = utils.mostarConfirmacao("Opção encontrada. Tem certeza que deseja excluir esta série?");
                         if(opcao == JOptionPane.YES_OPTION) {
                             parent.getSeries().remove(serie);
                             utils.mostrarAlerta("Série excluida com sucesso!");
@@ -49,6 +50,13 @@ public class BuscarSerie extends JFrame {
                         txtBuscarSerie.setText("");
                         parent.setVisible(true);
                         dispose();
+                        break;
+
+                    case "buscar":
+//                        imprimir = new ImprimeSerie (parent);
+//                        imprimir.getAreaDeTexto().setText(serie.toString());
+//                        imprimir.setVisible(true);
+//                        break;
                 }
             }
         });

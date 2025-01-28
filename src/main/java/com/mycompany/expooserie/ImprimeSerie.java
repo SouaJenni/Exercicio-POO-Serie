@@ -11,6 +11,14 @@ public class ImprimeSerie extends JFrame {
     private JTextArea areaDeTexto;
     private JButton btVoltar;
 
+    public JTextArea getAreaDeTexto() {
+        return areaDeTexto;
+    }
+
+    public void setAreaDeTexto(JTextArea areaDeTexto) {
+        this.areaDeTexto = areaDeTexto;
+    }
+
     public ImprimeSerie (Menu parent) {
         setContentPane(painelImprime);
         setTitle("Séries cadastradas");
