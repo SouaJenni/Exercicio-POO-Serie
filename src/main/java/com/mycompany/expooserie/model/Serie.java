@@ -44,10 +44,6 @@ public class Serie {
         this.tituloSerie = tituloSerie;
     }
 
-    public void adicionarTemporada(Temporada temporada) {
-        temporadas.add(temporada);
-    }
-
     @Override
     public String toString() {
         int quantidade = 0;

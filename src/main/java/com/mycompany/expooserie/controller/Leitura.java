@@ -27,7 +27,7 @@ public class Leitura {
 
     public int lerInteiro(String rotulo){
         Integer leituraInt=null;
-        boolean isValido=false;
+        boolean isValido;
         do{
             try {
                 String valorLido = lerString(rotulo);
@@ -44,7 +44,7 @@ public class Leitura {
 
     public float lerFloat(String rotulo){
         Float leiturafloat=null;
-        boolean isValido=false;
+        boolean isValido;
         do{
             try {
                 String valorLido = lerString(rotulo);

@@ -26,9 +26,6 @@ public class CadastrarTemporada extends JFrame {
         return episodios;
     }
 
-    public void setEpisodios(List<Episodio> episodios) {
-        this.episodios = episodios;
-    }
 
     public CadastrarTemporada(CadastrarSerie parent) {
         setContentPane(painelTemproada);

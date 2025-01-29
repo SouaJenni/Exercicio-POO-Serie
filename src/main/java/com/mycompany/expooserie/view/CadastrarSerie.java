@@ -25,9 +25,6 @@ public class CadastrarSerie extends JFrame {
         return temporadas;
     }
 
-    public void setTemporadas(List<Temporada> temporadas) {
-        this.temporadas = temporadas;
-    }
 
     private List<Temporada> temporadas;
 
@@ -111,9 +108,5 @@ public class CadastrarSerie extends JFrame {
             }
         });
     }
-
-    //    public static void main(String[] args) {
-//        CadastrarSerie cs = new CadastrarSerie();
-//    }
 }
 

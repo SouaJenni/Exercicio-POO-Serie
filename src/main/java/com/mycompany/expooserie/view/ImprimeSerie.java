@@ -13,13 +13,6 @@ public class ImprimeSerie extends JFrame {
     private JTextArea areaDeTexto;
     private JButton btVoltar;
 
-    public JTextArea getAreaDeTexto() {
-        return areaDeTexto;
-    }
-
-    public void setAreaDeTexto(JTextArea areaDeTexto) {
-        this.areaDeTexto = areaDeTexto;
-    }
 
     public ImprimeSerie (Menu parent, Serie serieBuscada) {
         setContentPane(painelImprime);
@@ -45,8 +38,4 @@ public class ImprimeSerie extends JFrame {
             }
         });
     }
-
-//    public static void main(String[] args) {
-//        ImprimeSerie imprime = new ImprimeSerie(null);
-//    }
 }

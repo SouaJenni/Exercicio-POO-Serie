@@ -80,8 +80,4 @@ public class CadastrarEpisodio extends JFrame {
             }
         });
     }
-
-//    public static void main(String[] args) {
-//        CadastrarTemporada ct = new CadastrarTemporada();
-//    }
 }

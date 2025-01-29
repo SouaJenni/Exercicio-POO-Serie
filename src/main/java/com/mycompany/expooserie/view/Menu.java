@@ -26,9 +26,6 @@ public class Menu extends JFrame {
         return series;
     }
 
-    public void setSeries(List<Serie> series) {
-        this.series = series;
-    }
 
     public Menu() {
         setContentPane(painelMenu);

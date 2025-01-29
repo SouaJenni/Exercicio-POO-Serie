@@ -35,10 +35,6 @@ public class Temporada {
     public void setNumeroTp(int numeroTp) {
         this.numeroTp = numeroTp;
     }
-    
-    public void adicionarEpisodio(Episodio episodio) {
-        episodios.add(episodio);
-    }
 
     public List<Episodio> getEpisodios() {
         return episodios;
