@@ -1,4 +1,8 @@
-package com.mycompany.expooserie;
+package com.mycompany.expooserie.view;
+
+import com.mycompany.expooserie.model.Serie;
+import com.mycompany.expooserie.model.Temporada;
+import com.mycompany.expooserie.controller.Utils;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

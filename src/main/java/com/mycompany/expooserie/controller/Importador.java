@@ -1,4 +1,8 @@
-package com.mycompany.expooserie;
+package com.mycompany.expooserie.controller;
+
+import com.mycompany.expooserie.model.Episodio;
+import com.mycompany.expooserie.model.Serie;
+import com.mycompany.expooserie.model.Temporada;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

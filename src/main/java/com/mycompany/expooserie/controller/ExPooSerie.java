@@ -2,12 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.mycompany.expooserie;
+package com.mycompany.expooserie.controller;
+
+import com.mycompany.expooserie.model.Episodio;
+import com.mycompany.expooserie.model.Serie;
+import com.mycompany.expooserie.model.Temporada;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.mycompany.expooserie.Consts.CAMINHO_ARQUIVO;
+import static com.mycompany.expooserie.controller.Consts.CAMINHO_ARQUIVO;
 
 
 public class ExPooSerie {

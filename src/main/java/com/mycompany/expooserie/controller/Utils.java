@@ -1,4 +1,4 @@
-package com.mycompany.expooserie;
+package com.mycompany.expooserie.controller;
 
 import javax.swing.*;
 

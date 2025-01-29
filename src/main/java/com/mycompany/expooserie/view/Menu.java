@@ -1,11 +1,15 @@
-package com.mycompany.expooserie;
+package com.mycompany.expooserie.view;
+
+import com.mycompany.expooserie.controller.Exportador;
+import com.mycompany.expooserie.controller.Importador;
+import com.mycompany.expooserie.model.Serie;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-import static com.mycompany.expooserie.Consts.CAMINHO_ARQUIVO;
+import static com.mycompany.expooserie.controller.Consts.CAMINHO_ARQUIVO;
 
 public class Menu extends JFrame {
     private JButton btListar;

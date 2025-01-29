@@ -1,4 +1,6 @@
-package com.mycompany.expooserie;
+package com.mycompany.expooserie.view;
+
+import com.mycompany.expooserie.model.Serie;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

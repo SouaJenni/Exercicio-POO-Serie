@@ -1,7 +1,4 @@
-package com.mycompany.expooserie;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.mycompany.expooserie.model;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
