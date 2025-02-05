@@ -2,6 +2,7 @@ package com.mycompany.expooserie.view;
 
 import com.mycompany.expooserie.controller.Exportador;
 import com.mycompany.expooserie.controller.Importador;
+import com.mycompany.expooserie.controller.ImportadorDB;
 import com.mycompany.expooserie.model.Serie;
 
 import javax.swing.*;
@@ -33,7 +34,8 @@ public class Menu extends JFrame {
         setSize(400, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-        series = new Importador().leitorArquivo(CAMINHO_ARQUIVO);
+//       series = new Importador().leitorArquivo(CAMINHO_ARQUIVO);
+        series = new ImportadorDB().leitorBancoDeDados();
         menu = this;
 
         btCadastrar.addActionListener(new ActionListener() {
