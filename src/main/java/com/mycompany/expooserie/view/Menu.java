@@ -34,7 +34,6 @@ public class Menu extends JFrame {
         setSize(400, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-//       series = new Importador().leitorArquivo(CAMINHO_ARQUIVO);
         series = new ImportadorDB().leitorBancoDeDados();
         menu = this;
 

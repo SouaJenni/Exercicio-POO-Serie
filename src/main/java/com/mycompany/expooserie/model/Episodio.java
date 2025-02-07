@@ -10,11 +10,11 @@ package com.mycompany.expooserie.model;
  * @author Jenni
  */
 public class Episodio {
-    int duracao;
-    String comentario;
-    int avaliacao;
-    int numeroEp;
-    String titulo;
+    private int duracao;
+    private String comentario;
+    private int avaliacao;
+    private int numeroEp;
+    private String titulo;
 
     public int getDuracao() {
         return duracao;
@@ -38,10 +38,6 @@ public class Episodio {
 
     public void setAvaliacao(int avaliacao) {
         this.avaliacao = avaliacao;
-    }
-
-    public int getNumeroEp() {
-        return numeroEp;
     }
 
     public void setNumeroEp(int numero) {
