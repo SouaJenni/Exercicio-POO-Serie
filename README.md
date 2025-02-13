@@ -49,7 +49,7 @@ Neste diagrama as classes foram separadas por cor baseado na organização do pr
 - rosa: relação com o banco de dados
 - laranja: modelo
 
-![Diagrama de classes](./diagramaClassesSerie.png)
+![Diagrama de classes](./imagens/diagramaClassesSerie.png)
 
 
 
